@@ -1,0 +1,260 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "type": "builtin",
+        "source": "auto",
+        "padding": {
+            "top": 8,
+            "right": 10,
+            "bottom": 0,
+            "left": 10
+        },
+    },
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    "display": {
+        "brightColor": "true",
+        "separator": "",
+        "key": {
+            "width": 15
+        },
+        "constants": [
+            "\u001b[49C", //{$1} move cursor 49 lines to right
+            "\u001b[58C", //{$2} move cursor 58 lines to right
+            "\u001b[32m", //{$3} green
+            "\u001b[34m", //{$4} blue
+            "\u001b[35m", //{$5} violet
+            "\u001b[33m", //{$6} "yellow"
+            "\u001b[90m", //{$7} gray
+        ],
+    },
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    "modules": [
+        "break",
+        {
+            "type": "custom",
+            "format": "    {$7}┏━━━━━━━━━┫{$3}Hardware{$7}┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"
+        },
+        {
+            "type": "host",
+            "key": "    {$7}┃{$3} 󰌢 PC   {$1} {$7}┃",
+            "format": "{vendor} {name} (SKU:{sku})",
+            "keyColor": "green"
+        },
+        {
+            "type": "chassis",
+            "key": "    {$7}┃{$3} ╰ Form {$1} {$7}┃",
+            "keyColor": "green"
+        },
+        {
+            "type": "cpu",
+            "key": "    {$7}┃{$3}   ├  :{$1} {$7}┃",
+            "format": "{name} ({cores-physical}C/{cores-logical}T) @ {freq-max}",
+            "keyColor": "green"
+        },
+	{
+            "type": "cpu",
+            "key": "    {$7}┃{$3}   │ ↳ {$1} {$7}┃",
+            "format": " {temperature} Temp, {numa-nodes} NUMA Nodes",
+            "temp": {
+                "green": 50,
+                "yellow": 75
+            },
+            "keyColor": "green"
+        },
+        {
+            "type": "gpu",
+            "key": "    {$7}┃{$3}   ├ 󰍹 :{$1} {$7}┃",
+	          "format": "{vendor} {name} {type}",
+            "keyColor": "green"
+        },
+	{
+            "type": "monitor",
+            "key": "    {$7}┃{$3}   │ ↳ 󰍹{$1} {$7}┃",
+            "format": "{width} x {height} @ {refresh-rate}: {name}",
+            "keyColor": "green"
+        },
+        {
+            "type": "memory",
+            "key": "    {$7}┃{$3}   ├ 󰑭 :{$1} {$7}┃",
+            "percent": {
+                "type": 2,
+                "green": 50,
+                "yellow": 75
+            },
+            "keyColor": "green"
+        },
+        {
+            "type": "disk",
+            "key": "    {$7}┃{$3}   ├ 󰋊 :{$1} {$7}┃",
+            "percent": {
+                "type": 2,
+                "green": 80,
+                "yellow": 95
+            },
+            "keyColor": "green"
+        },
+        {
+            "type": "battery",
+            "key": "    {$7}┃{$3}   ├ 🗲 :{$1} {$7}┃",
+            "percent": {
+              "type": 3,
+              "green": 50,
+              "yellow": 20,
+              "red": 0,
+            },
+            "temp": {
+                "green": 35,
+                "yellow": 40
+            },
+            "format": "{capacity-bar} Batt Temp {temperature} [{status}]",
+            "keyColor": "green"
+        },
+        {
+            "type": "sound",
+            "key": "    {$7}┃{$3}   ├ 🕪 :{$1} {$7}┃",
+            "percent": {
+                "type": 2,
+                "green": 25,
+                "yellow": 75
+            },
+            "format": "{volume-percentage-bar} {name}",
+            "keyColor": "green",
+        },
+        {
+            "type": "bluetoothradio",
+            "key": "    {$7}┃{$3}   ├  :{$1} {$7}┃",
+            "format": "{vendor} BT v.{version}/LMP v.{lmp-version}",
+            "keyColor": "green",
+        },
+        {
+            "type": "bluetooth",
+            "key": "    {$7}┃{$3}   │ ↳ {$1} {$7}┃",
+            "percent": {
+                "type": 2,
+                "green": 50,
+                "yellow": 20,
+                "red": 0
+            },
+            "format": "{battery-percentage-bar} {name} {type}",
+            "keyColor": "green"
+        },
+        {
+            "type": "wifi",
+            "key": "    {$7}┃{$3}   ├  :{$1} {$7}┃",
+            "percent": {
+                "type": 2,
+                "green": 50,
+                "yellow": 20,
+                "red": 0,
+            },
+            "format": "{signal-quality-bar} {status} {Security} Ch.{channel} [{band} GHz]",
+            "keyColor": "green",
+        },
+        {
+            "type": "netio",
+            "key": "    {$7}┃{$3}   ╰ 🖧 :{$1} {$7}┃",
+            "format": "active: {ifname} ↓{rx-size} ↑{tx-size}",
+            "keyColor": "green"
+        },
+        {
+            "type": "custom",
+            "format": "    {$7}┣━━━━━━━━━┫{$3}Software{$7}┃                                       ┃"
+        },
+        {
+            "type": "os",
+            "key": "    {$7}┃{$6}  OS   {$1} {$7}┃",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "kernel",
+            "key": "    {$7}┃{$6} ╰─┬ 󰌽 :{$1} {$7}┃",
+            "format": "{sysname} v.{release}-{arch}",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "bios",
+            "key": "    {$7}┃{$6}   ├  :{$1} {$7}┃",
+            "format": "BIOS v.{version} {type}",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "tpm",
+            "key": "    {$7}┃{$6}   ├  :{$1} {$7}┃",
+            "format": "TPM v.{version}",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "packages",
+            "key": "    {$7}┃{$6}   ├ 󰏗 :{$1} {$7}┃",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "shell",
+            "key": "    {$7}┃{$6}   ╰ 󰞷 :{$1} {$7}┃",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "de",
+            "key": "    {$7}┃{$4} 󰧨 DE   {$1} {$7}┃",
+            "keyColor": "blue"
+        },
+        {
+            "type": "lm",
+            "key": "    {$7}┃{$4} ╰─┬ 󰍁 :{$1} {$7}┃",
+            "keyColor": "blue"
+        },
+        {
+            "type": "wm",
+            "key": "    {$7}┃{$4}   ├ 󱂬 :{$1} {$7}┃",
+            "keyColor": "blue"
+        },
+        {
+            "type": "wmtheme",
+            "key": "    {$7}┃{$4}   ├ 󰉦 :{$1} {$7}┃",
+            "keyColor": "blue"
+        },
+        {
+            "type": "terminal",
+            "key": "    {$7}┃{$4}   ╰ 󰆍 :{$1} {$7}┃",
+            "keyColor": "blue"
+        },
+        {
+            "type": "custom",
+            "format": "    {$7}┣━━━━━━━━━┫{$3}Uptime / Age / Date{$7}┃                            ┃"
+        },
+        {
+            "type": "command",
+            "key": "    {$7}┃{$5} OS Age: {$1}{$7}┃",
+            "keyColor": "magenta",
+            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
+        },
+        {
+            "type": "uptime",
+            "key": "    {$7}┃{$5} ⮝ Time: {$1}{$7}┃",
+            "format": "{days} days, {hours} hours, {minutes} mins, {seconds}.{milliseconds} secs",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "users",
+            "key": "    {$7}┃{$5}  Time: {$1}{$7}┃",
+            "format": "{days} days, {hours} hours, {minutes} mins, {seconds}.{milliseconds} secs",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "datetime",
+            "key": "    {$7}┃{$5}  Time: {$1}{$7}┃",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "custom",
+            "format": "    {$7}┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"
+        },
+        {
+            "type": "colors",
+            "paddingLeft": 24,
+            "symbol": "circle"
+        },
+    ]
+}
