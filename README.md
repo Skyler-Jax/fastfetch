@@ -1,0 +1,2 @@
+# FastFetch
+My FastFech configs
