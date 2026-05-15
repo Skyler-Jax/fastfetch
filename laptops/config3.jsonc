@@ -66,7 +66,7 @@
         {
             "type": "gpu",
             "key": "    {$7}┃{$3}   ├ 󰍹 :{$1} {$7}┃",
-	          "format": "{vendor} {name} {type}",
+	   		"format": "{vendor} {name} {type}",
             "keyColor": "green"
         },
 	{
@@ -135,8 +135,8 @@
             "key": "    {$7}┃{$3}   │ ╰  {$1}{$7}┃",
             "percent": {
                 "type": 2,
-                "green": 25,
-                "yellow": 75
+                "green": 60,
+                "yellow": 80
             },
             "format": "{volume-percentage-bar}",
             "keyColor": "green",
@@ -212,16 +212,19 @@
         {
             "type": "shell",
             "key": "    {$7}┃{$6}   ╰ 󰞷 :{$1} {$7}┃",
+            "format": "{pretty-name} v.{version}",
             "keyColor": "yellow"
         },
         {
             "type": "de",
             "key": "    {$7}┃{$4} 󰧨 DE   {$1} {$7}┃",
+            "format": "{pretty-name} v.{version}",
             "keyColor": "blue"
         },
         {
             "type": "lm",
             "key": "    {$7}┃{$4} ╰─┬ 󰍁 :{$1} {$7}┃",
+            "format": "{service} v.{version} ({type})",
             "keyColor": "blue"
         },
         {
@@ -237,6 +240,7 @@
         {
             "type": "terminal",
             "key": "    {$7}┃{$4}   ╰ 󰆍 :{$1} {$7}┃",
+            "format": "{pretty-name} v.{version} [tty {tty}]",
             "keyColor": "blue"
         },
         {
