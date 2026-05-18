@@ -26,3 +26,8 @@ glyphs. I recommend using a NerdFont in your VT to get the proper display.**
 - revised iconography
 - expanded sub-item idea
 <img width="1164" height="852" alt="image" src="https://github.com/user-attachments/assets/d4ed12bb-9e67-4852-8654-c98d6ab66756" />
+
+## Laptops/Config 4
+- further refinement of Config 3 with more sub-items and modules
+- final laptop revision
+<img width="1120" height="867" alt="image" src="https://github.com/user-attachments/assets/367dceab-bb8c-49c4-a60d-ee2c2c52c31a" />
